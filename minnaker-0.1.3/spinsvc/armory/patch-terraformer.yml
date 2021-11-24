@@ -1,0 +1,52 @@
+#-----------------------------------------------------------------------------------------------------------------
+# Example configuration for enabling terraformer stages in spinnaker
+#
+# Feature documentation: https://docs.armory.io/docs/spinnaker/terraform-use-integration/
+#-----------------------------------------------------------------------------------------------------------------
+apiVersion: spinnaker.io/v1alpha2
+kind: SpinnakerService
+metadata:
+  name: spinnaker
+spec:
+  # Docs: https://docs.armory.io/docs/spinnaker/terraform-enable-integration/
+  spinnakerConfig:
+    # Enables terraformer backend feature
+    config:
+      armory:
+        terraform:
+          enabled: true
+      ## USE accounts/git/patch-git-repo.yml
+      ## Gitrepo support, so that terraformer downloads terraform scripts from git repositories
+      # artifacts:
+      #   gitrepo:
+      #     enabled: true
+      #     accounts:
+      #       - name: gitrepo
+      #         username: john.doe                # Git username.
+      #         token: encrypted:k8s!n:spin-secrets!k:github-token # (Secret). Git token.
+    profiles:
+      # deck: # Enable this setting under core_config/patch-deck.yml
+      #   # Enables terraformer UI
+      #   settings-local.js: |
+      #     window.spinnakerSettings.feature.terraform = true;
+      terraformer:
+        # Terraformer named profiles, for supplying credentials to terraformer
+        profiles:
+          - name: aws-with-session-tokens
+            variables:
+              - kind: static
+                options:
+                  name: AWS_ACCESS_KEY_ID
+                  value: XXXXXXXXXXXXXXXXXXXX
+              - kind: static
+                options:
+                  name: AWS_SECRET_ACCESS_KEY
+                  value: encrypted:k8s!n:spin-secrets!k:aws-secret-key
+              - kind: static
+                options:
+                  name: AWS_SESSION_TOKEN
+                  value: encrypted:k8s!n:spin-secrets!k:aws-session-token
+        # Used for connecting to an external Redis instance
+#        redis:
+#          baseUrl: "redis://spin-redis:6379"
+#          password: "password"

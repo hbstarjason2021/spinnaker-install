@@ -1,0 +1,25 @@
+#-----------------------------------------------------------------------------------------------------------------
+# Example configuration for exposing spinnaker with an ingress object implemented by Traefik.
+#-----------------------------------------------------------------------------------------------------------------
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: spin-ingress
+  labels:
+    app: spin
+    cluster: spin-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
+spec:
+  rules:
+    - http:
+        paths:
+          - backend:
+              serviceName: spin-deck
+              servicePort: 9000
+            path: /
+          - backend:
+              serviceName: spin-gate
+              servicePort: 8084
+            path: /api

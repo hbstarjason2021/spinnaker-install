@@ -1,0 +1,37 @@
+11/24/21 17:19:25 [INFO ] Using OSS Spinnaker
+11/24/21 17:19:25 [INFO ] Using OSS Spinnaker
+11/24/21 17:19:26 [INFO ] Running minnaker setup for Linux
+11/24/21 17:19:26 [INFO ] Cloning repo: https://github.com/armory/spinnaker-kustomize-patches#minnaker into /root/minnaker-0.1.3/spinsvc
+11/24/21 17:19:27 [INFO ] Installing yq
+11/24/21 17:19:28 [INFO ] Installing jq
+11/24/21 17:19:28 [INFO ] Trying to detect endpoint
+11/24/21 17:19:28 [INFO ] Using provided public IP 172.17.0.57
+11/24/21 17:19:28 [INFO ] Generating password [/root/minnaker-0.1.3/spinsvc/secrets/spinnaker_password]:
+11/24/21 17:19:28 [INFO ] Updating spinsvc templates with new endpoint: 172.17.0.57
+11/24/21 17:19:28 [INFO ] Creating spin_endpoint helper function
+11/24/21 17:19:28 [INFO ] --- Installing K3s ---
+11/24/21 17:19:42 [INFO ]  --- END K3s --- 
+11/24/21 17:19:42 [INFO ] Setting Kubernetes context to Spinnaker namespace
+11/24/21 17:22:01 [KUBE ] kubectl apply -f https://engineering.armory.io/manifests/pacrd-1.0.1.yaml -n spinnaker
+customresourcedefinition.apiextensions.k8s.io/applications.pacrd.armory.spinnaker.io created
+customresourcedefinition.apiextensions.k8s.io/pipelines.pacrd.armory.spinnaker.io created
+role.rbac.authorization.k8s.io/pacrd-leader-election-role created
+clusterrole.rbac.authorization.k8s.io/pacrd-manager-role created
+clusterrole.rbac.authorization.k8s.io/pacrd-proxy-role created
+rolebinding.rbac.authorization.k8s.io/pacrd-leader-election-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/pacrd-manager-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/pacrd-proxy-rolebinding created
+configmap/pacrd-config created
+service/pacrd-controller-manager-metrics-service created
+deployment.apps/pacrd-controller-manager created
+11/24/21 17:22:05 [KUBE ] kubectl apply -k /root/minnaker-0.1.3/pipelines -n spinnaker
+namespace/dev created
+namespace/prod created
+namespace/stage created
+application.pacrd.armory.spinnaker.io/armory-samples created
+application.pacrd.armory.spinnaker.io/bootstrap created
+pipeline.pacrd.armory.spinnaker.io/basic-deploy-to-kubernetes created
+pipeline.pacrd.armory.spinnaker.io/click-start-manual-execution created
+pipeline.pacrd.armory.spinnaker.io/configure-github-integration created
+pipeline.pacrd.armory.spinnaker.io/configure-jenkins-integration created
+pipeline.pacrd.armory.spinnaker.io/configure-slack-integration created
