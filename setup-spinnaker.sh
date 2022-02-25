@@ -15,4 +15,7 @@ sudo hal config deploy edit --type=distributed --account-name my-k8s
 
 sudo chmod 777 ~/.kube && chmod 777  ~/.kube/config
 
+mkdir -p /home/zhang/.kube
+sudo cp -i /root/.kube/config /home/zhang/.kube/config
+
 sudo hal deploy apply
