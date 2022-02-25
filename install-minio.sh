@@ -31,4 +31,8 @@ echo ${MINIO_ROOT_PASSWORD} | hal config storage s3 edit \
   --secret-access-key \
   --endpoint http://127.0.0.1:9001
 
+DEPLOYMENT="default"
+mkdir -p ~/.hal/$DEPLOYMENT/profiles/
+echo spinnaker.s3.versioning: false > ~/.hal/$DEPLOYMENT/profiles/front50-local.yml
+
 hal config storage edit --type s3
