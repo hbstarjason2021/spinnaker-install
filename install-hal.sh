@@ -9,6 +9,6 @@ else
   sudo apt install -y default-jre
   curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/debian/InstallHalyard.sh
   sudo useradd -m zhang
-  sudo bash InstallHalyard.sh --user zhang
+  sudo bash InstallHalyard.sh --user zhang -y
   echo "hal version: $(hal -v)"
 fi
