@@ -21,8 +21,8 @@ hal config version edit --version ${SPINNAKER_VERSION}
        
 hal config deploy edit --type=distributed --account-name ${ACCOUNT_NAME}
 
-
-sudo chmod 777 /root/.kube && chmod 777 /root/.kube/config
+chmod 777 -R /root/
+#sudo chmod 777 /root/.kube && chmod 777 /root/.kube/config
 
 #mkdir -p /home/zhang/.kube
 #cp -i /root/.kube/config /home/zhang/.kube/config
