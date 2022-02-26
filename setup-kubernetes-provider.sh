@@ -2,10 +2,13 @@
 
 set -e
 
+## hal version list
+
 SPINNAKER_VERSION=1.25.7
 ACCOUNT_NAME=my-k8s
 
 hal config provider kubernetes enable
+hal config version edit --version ${SPINNAKER_VERSION}
 
 if [ -z "$(hal config provider kubernetes account list | grep ${ACCOUNT_NAME})" ]; then
    CONTEXT=$(kubectl config current-context)
@@ -16,9 +19,7 @@ if [ -z "$(hal config provider kubernetes account list | grep ${ACCOUNT_NAME})" 
 else
   echo "=== kubernetes account ${ACCOUNT_NAME} exists"
 fi
-
-hal config version edit --version ${SPINNAKER_VERSION}
-       
+     
 hal config deploy edit --type=distributed --account-name ${ACCOUNT_NAME}
 
 chmod 777 -R /root/
@@ -28,3 +29,4 @@ chmod 777 -R /root/
 #cp -i /root/.kube/config /home/zhang/.kube/config
 
 ### hal deploy apply
+
