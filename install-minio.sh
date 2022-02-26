@@ -10,7 +10,8 @@ LOCAL_IP=$(ifconfig ens3 |grep "inet "| awk '{print $2}')
 
 NAME=minio
 if [ -z "$(sudo docker ps -f name=${NAME} | grep ${NAME})" ]; then
-  echo "Running a new minio container"
+  echo -e "\033[32m Running a new minio container \033[0m"
+  ## echo "Running a new minio container"
   sudo docker run -p 9001:9000 \
     --name ${NAME} \
     -d \
@@ -36,7 +37,7 @@ echo ${MINIO_ROOT_PASSWORD} | hal config storage s3 edit \
   --endpoint http://$LOCAL_IP:9001
 
 DEPLOYMENT="default"
-mkdir -p /home/zhang/.hal/$DEPLOYMENT/profiles/
+mkdir -p /home/${USER}/.hal/$DEPLOYMENT/profiles/
 echo "spinnaker.s3.versioning: false" > /home/${USER}/.hal/$DEPLOYMENT/profiles/front50-local.yml
 
 hal config storage edit --type s3
