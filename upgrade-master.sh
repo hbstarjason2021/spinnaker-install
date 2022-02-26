@@ -4,6 +4,9 @@ set -e
 
 ### https://kubernetes.io/zh/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/
 
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+
 sudo apt-mark unhold kubeadm && \
 sudo apt-get update && apt-get install -y kubeadm=1.19.4-00  && \
 sudo apt-mark hold kubeadm 
