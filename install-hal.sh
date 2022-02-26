@@ -12,5 +12,6 @@ else
   curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/debian/InstallHalyard.sh
   sudo useradd -m zhang
   sudo bash InstallHalyard.sh --user zhang -y
-  echo "hal version: $(hal -v)"
+  echo -e "\033[32m hal version: $(hal -v) \033[0m"
+  ## echo "hal version: $(hal -v)"
 fi
