@@ -5,6 +5,8 @@ set -euo pipefail
 MINIO_ROOT_USER=minioadmin
 MINIO_ROOT_PASSWORD=minioadmin
 MINIO_ENCRYPTION_KEY=minio-encryption-key
+LOCAL_IP=$(ifconfig ens3 |grep "inet "| awk '{print $2}')
+
 
 NAME=minio
 if [ -z "$(sudo docker ps -f name=${NAME} | grep ${NAME})" ]; then
@@ -25,11 +27,12 @@ else
   sudo docker start ${NAME}
 fi
 
+echo "$LOCAL_IP"
 
 echo ${MINIO_ROOT_PASSWORD} | hal config storage s3 edit \
   --access-key-id ${MINIO_ROOT_USER} \
   --secret-access-key \
-  --endpoint http://127.0.0.1:9001
+  --endpoint http://$LOCAL_IP:9001
 
 DEPLOYMENT="default"
 mkdir -p ~/.hal/$DEPLOYMENT/profiles/
