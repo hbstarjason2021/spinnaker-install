@@ -27,3 +27,4 @@ sudo chmod 777 /root/.kube && chmod 777 /root/.kube/config
 #mkdir -p /home/zhang/.kube
 #cp -i /root/.kube/config /home/zhang/.kube/config
 
+### hal deploy apply
