@@ -16,3 +16,5 @@ hal config canary prometheus enable
 hal config canary prometheus account add $PROMETHEUS_ACCOUNT --base-url http://$PROMETHEUS_URL
 
 hal config canary prometheus account list
+
+hal config canary prometheus account get $PROMETHEUS_ACCOUNT
