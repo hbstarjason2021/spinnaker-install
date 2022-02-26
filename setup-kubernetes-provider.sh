@@ -24,6 +24,9 @@ fi
      
 hal config deploy edit --type=distributed --account-name ${ACCOUNT_NAME}
 
+## https://spinnaker.io/docs/setup/install/environment/
+## hal config deploy edit --liveness-probe-enabled true --liveness-probe-initial-delay-seconds $LONGEST_SERVICE_STARTUP_TIME
+
 chmod 777 -R /root/
 #sudo chmod 777 /root/.kube && chmod 777 /root/.kube/config
 
