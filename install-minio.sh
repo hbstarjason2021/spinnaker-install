@@ -23,7 +23,8 @@ if [ -z "$(sudo docker ps -f name=${NAME} | grep ${NAME})" ]; then
     -v $HOME/minio/disk4:/disk4 \
     minio/minio server /disk{1...4}
 else
-  echo "Starting minio container"
+  echo -e "\033[32m Starting minio container \033[0m"
+  ## echo "Starting minio container"
   sudo docker start ${NAME}
 fi
 
