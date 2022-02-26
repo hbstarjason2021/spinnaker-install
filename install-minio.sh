@@ -37,6 +37,6 @@ echo ${MINIO_ROOT_PASSWORD} | hal config storage s3 edit \
 
 DEPLOYMENT="default"
 mkdir -p /home/zhang/.hal/$DEPLOYMENT/profiles/
-echo "spinnaker.s3.versioning: false" > /home/zhang/.hal/$DEPLOYMENT/profiles/front50-local.yml
+echo "spinnaker.s3.versioning: false" > /home/${USER}/.hal/$DEPLOYMENT/profiles/front50-local.yml
 
 hal config storage edit --type s3
