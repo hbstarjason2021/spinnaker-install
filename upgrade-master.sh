@@ -19,7 +19,7 @@ kubeadm upgrade plan
 
 ### kubeadm upgrade plan --config /etc/kubernetes/kubeadm.yaml
 
-sudo kubeadm upgrade apply v1.19.4
+sudo kubeadm upgrade apply v1.19.4 -y
 
 
 sudo apt-mark unhold kubelet kubectl && \
