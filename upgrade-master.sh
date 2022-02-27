@@ -2,6 +2,11 @@
 
 set -e
 
+####### kubectl describe node $(kubectl get nodes --no-headers=true -o wide  |grep master | awk '{print $1}') |grep Taints
+####### kubectl taint node $(kubectl get nodes --no-headers=true -o wide  |grep master | awk '{print $1}') node-role.kubernetes.io/master-
+####### kubectl taint node $(kubectl get nodes --no-headers=true -o wide  |grep master | awk '{print $1}') node-role.kubernetes.io/master="":NoSchedule
+
+
 ## apt-cache madison kubeadm
 
 ### https://kubernetes.io/zh/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/
