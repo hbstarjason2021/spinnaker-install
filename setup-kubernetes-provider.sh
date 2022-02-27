@@ -7,6 +7,8 @@ set -e
 SPINNAKER_VERSION=1.25.7
 ACCOUNT_NAME=my-k8s
 
+## hal version bom ${SPINNAKER_VERSION} -q -o yaml 
+
 if [ -z "${SPINNAKER_VERSION}" ] ; then
   echo "SPINNAKER_VERSION not set"
   exit
