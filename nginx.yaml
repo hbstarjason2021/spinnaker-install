@@ -49,6 +49,7 @@ spec:
   selector:
     app: nginx
   type: NodePort
+  # type: LoadBalancer
   ports:
     - port: 80
       nodePort: 32000
