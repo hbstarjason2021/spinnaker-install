@@ -2,6 +2,12 @@
 
 set -euo pipefail
 
+red="\033[31m"
+green="\033[32m"
+yellow="\033[33m"
+white="\033[0m"
+
+
 USER=zhang
 
 if (command -v hal >/dev/null 2>&1) then
