@@ -20,3 +20,7 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 
 sudo usermod -aG docker $USER
 newgrp docker
+
+## curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+## systemctl enable docker
+## systemctl start docker
