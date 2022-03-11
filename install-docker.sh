@@ -21,6 +21,15 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker $USER
 newgrp docker
 
+<< CONTENT
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://jngj6il2.mirror.aliyuncs.com"]
+}
+EOF
+CONTENT
+
 ## curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 ## systemctl enable docker
 ## systemctl start docker
