@@ -2,11 +2,13 @@
 
 set -euo pipefail
 
+### MINIO_ROOT_USER=$(< /dev/urandom tr -dc a-z | head -c${1:-4})
+### MINIO_ROOT_PASSWORD=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-8})
+
 MINIO_ROOT_USER=minioadmin
 MINIO_ROOT_PASSWORD=minioadmin
 MINIO_ENCRYPTION_KEY=minio-encryption-key
 LOCAL_IP=$(ifconfig ens3 |grep "inet "| awk '{print $2}')
-
 
 NAME=minio
 if [ -z "$(sudo docker ps -f name=${NAME} | grep ${NAME})" ]; then
