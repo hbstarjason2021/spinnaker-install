@@ -4,7 +4,7 @@ set -e
 
 ## hal version list
 
-SPINNAKER_VERSION=1.25.7
+SPINNAKER_VERSION=1.26.7
 ACCOUNT_NAME=my-k8s
 
 ## hal version bom ${SPINNAKER_VERSION} -q -o yaml 
