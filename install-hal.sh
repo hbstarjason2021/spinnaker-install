@@ -26,3 +26,17 @@ else
   ## echo -e "\033[32m hal version: $(hal -v) \033[0m"
   ## echo "hal version: $(hal -v)"
 fi
+
+##################################################
+<<'COMMENT'
+### https://spinnaker.io/docs/setup/install/halyard/
+
+mkdir ~/.hal
+docker run -p 8084:8084 -p 9000:9000 \
+    --name halyard --rm \
+    -v ~/.hal:/home/spinnaker/.hal \
+    -itd \
+    us-docker.pkg.dev/spinnaker-community/docker/halyard:stable
+    ## hbstarjason/halyard:1.44.1
+
+COMMENT
