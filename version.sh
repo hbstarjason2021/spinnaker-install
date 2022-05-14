@@ -8,5 +8,6 @@ hal-v
 
 hal version list
 
+## https://spinnaker.io/community/releases/versions/ 
 SPINNAKER_VERSION=1.26.7
 hal version bom ${SPINNAKER_VERSION} -q -o yaml >/tmp/${SPINNAKER_VERSION}.yml
