@@ -8,7 +8,7 @@ do
     echo ${line}
     docker pull ${S_REGISTRY}/docker/${line}
     docker tag ${S_REGISTRY}/docker/${line} ${T_REGISTRY}/${line}
-    # docker push ${T_REGISTRY}/${line}
+    docker push ${T_REGISTRY}/${line}
     
     # docker pull ${T_REGISTRY}/${line}
     # docker tag ${T_REGISTRY}/${line} ${S_REGISTRY}/docker/${line}
