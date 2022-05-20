@@ -13,6 +13,7 @@ do
     # docker pull ${T_REGISTRY}/${line}
     # docker tag ${T_REGISTRY}/${line} ${S_REGISTRY}/docker/${line}
     docker images |grep ${S_REGISTRY}
+    docker images |grep ${T_REGISTRY}
 done 
 
 ##################################################
