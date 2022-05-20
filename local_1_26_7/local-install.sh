@@ -54,20 +54,6 @@ hal config features edit --artifacts true --no-validate
 hal config features edit --managed-pipeline-templates-v2-ui true --no-validate
 
 
-hal config provider kubernetes enable --no-validate
-hal config provider kubernetes account add my-k8s \
-    --context $(kubectl config current-context) \
-    --service-account true \
-    --omit-namespaces=kube-system,kube-public \
-    --provider-version v2 \
-    --no-validate
-    
-hal config deploy edit \
-    --account-name my-k8s \
-    --type distributed \
-    --location spinnaker \
-    --no-validate    
-
 hal config provider kubernetes account list 
 
 hal deploy apply --no-validate
