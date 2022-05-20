@@ -19,11 +19,12 @@ KUBE_DIR="/root/.kube/"
  docker run -d  \
     --name halyard   \
     -v ${BOMS_DIR}:/home/spinnaker/.hal \
-    #-v ${BOMS_DIR}/halyard-local.yaml:/opt/halyard/config/halyard.yml \
     -v ${KUBE_DIR}:/home/spinnaker/.kube \
     -it hbstarjason/halyard:1.44.1
-    ## us-docker.pkg.dev/spinnaker-community/docker/halyard:stable
-    
+ 
+ ## us-docker.pkg.dev/spinnaker-community/docker/halyard:stable
+ #-v ${BOMS_DIR}/halyard-local.yaml:/opt/halyard/config/halyard.yml 
+
 docker exec -it  halyard bash 
 
 VERSION="1.26.7"
