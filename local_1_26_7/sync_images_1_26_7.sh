@@ -3,6 +3,7 @@ set -x
 S_REGISTRY="us-docker.pkg.dev/spinnaker-community"
 T_REGISTRY="hbstarjason"
 
+####################################################
 cat images_list_1_26_7.yaml  | while read line
 do 
     echo ${line}
