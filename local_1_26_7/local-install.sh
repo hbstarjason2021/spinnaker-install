@@ -25,6 +25,8 @@ KUBE_DIR="/root/.kube/"
  ## us-docker.pkg.dev/spinnaker-community/docker/halyard:stable
  #-v ${BOMS_DIR}/halyard-local.yaml:/opt/halyard/config/halyard.yml 
 
+docker cp .hal/.boms/halyard-local.yaml halyard:/opt/halyard/config/halyard.yml
+
 docker exec -it  halyard bash 
 
 VERSION="1.26.7"
