@@ -11,7 +11,7 @@ set -e
 
 ### https://kubernetes.io/zh/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/
 
-VERSION=1.19.4
+VERSION=v1.19.16
 
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
