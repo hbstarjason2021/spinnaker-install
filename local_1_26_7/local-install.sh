@@ -36,7 +36,8 @@ ACCOUNT_NAME="my-k8s"
 
 hal config version edit --version local:${VERSION} --no-validate
 hal config edit --timezone Asia/Shanghai
-hal config storage edit --type redis 
+
+### hal config storage edit --type redis 
 
 hal config provider kubernetes enable --no-validate
 hal config provider kubernetes account add ${ACCOUNT_NAME} \
