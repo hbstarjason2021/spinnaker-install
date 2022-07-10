@@ -44,6 +44,7 @@ echo ${MINIO_ROOT_PASSWORD} | hal config storage s3 edit \
   --endpoint http://$LOCAL_IP:9000
 
 DEPLOYMENT="default"
+USER="spinnaker"
 mkdir -p /home/${USER}/.hal/$DEPLOYMENT/profiles/
 echo "spinnaker.s3.versioning: false" > /home/${USER}/.hal/$DEPLOYMENT/profiles/front50-local.yml
 
