@@ -40,5 +40,7 @@ for imageName in ${images[@]};do
   docker tag  ${T_REGISTRY}/$imageName ${S_REGISTRY}/docker/$imageName
   docker rmi  ${T_REGISTRY}/$imageName
 done
-
-
+  
+  docker pull ${T_REGISTRY}/redis-cluster:v2
+  docker tag  ${T_REGISTRY}/redis-cluster:v2 ${S_REGISTRY}/redis/redis-cluster:v2
+  docker rmi ${T_REGISTRY}/redis-cluster:v2
