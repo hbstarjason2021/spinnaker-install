@@ -8,7 +8,7 @@ set -euo pipefail
 MINIO_ROOT_USER=minioadmin
 MINIO_ROOT_PASSWORD=minioadmin
 MINIO_ENCRYPTION_KEY=minio-encryption-key
-LOCAL_IP=$(ifconfig ens3 |grep "inet "| awk '{print $2}')
+LOCAL_IP=$(ifconfig eth0 |grep "inet "| awk '{print $2}')
 
 NAME=minio
 if [ -z "$(sudo docker ps -f name=${NAME} | grep ${NAME})" ]; then
