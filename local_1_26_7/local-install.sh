@@ -37,7 +37,18 @@ ACCOUNT_NAME="my-k8s"
 hal config version edit --version local:${VERSION} --no-validate
 hal config edit --timezone Asia/Shanghai
 
-### hal config storage edit --type redis 
+########## hal config storage edit --type redis 
+echo ${MINIO_ROOT_PASSWORD} | hal config storage s3 edit \
+  --access-key-id ${MINIO_ROOT_USER} \
+  --secret-access-key \
+  --endpoint http://$LOCAL_IP:9000
+
+DEPLOYMENT="default"
+mkdir -p /home/${USER}/.hal/$DEPLOYMENT/profiles/
+echo "spinnaker.s3.versioning: false" > /home/${USER}/.hal/$DEPLOYMENT/profiles/front50-local.yml
+
+hal config storage edit --type s3
+
 
 hal config provider kubernetes enable --no-validate
 hal config provider kubernetes account add ${ACCOUNT_NAME} \
