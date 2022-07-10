@@ -3,6 +3,7 @@ set -x
 S_REGISTRY="us-docker.pkg.dev/spinnaker-community"
 T_REGISTRY="hbstarjason"
 
+<<'COMMENT'
 ####################################################
 cat images_list_1_26_7.yaml  | while read line
 do 
@@ -19,7 +20,7 @@ do
 done 
 
 ##################################################
-<<'COMMENT'
+COMMENT
 
 ## v1.26.7
 images=(
@@ -36,8 +37,8 @@ images=(
 
 for imageName in ${images[@]};do
   docker pull ${T_REGISTRY}/$imageName
-  docker tag  ${T_REGISTRY}/$imageName ${S_REGISTRY}/$imageName
+  docker tag  ${T_REGISTRY}/$imageName ${S_REGISTRY}/docker/$imageName
   docker rmi  ${T_REGISTRY}/$imageName
 done
 
-COMMENT
+
