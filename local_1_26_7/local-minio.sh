@@ -14,7 +14,7 @@ NAME=minio
 if [ -z "$(sudo docker ps -f name=${NAME} | grep ${NAME})" ]; then
   echo -e "\033[32m Running a new minio container \033[0m"
   ## echo "Running a new minio container"
-  sudo docker run -p 9001:9000 \
+  sudo docker run -p 9000:9000 -p 9090:9090 \
     --name ${NAME} \
     -d \
     -e "MINIO_ROOT_USER_FILE=${MINIO_ROOT_USER}" \
@@ -24,7 +24,8 @@ if [ -z "$(sudo docker ps -f name=${NAME} | grep ${NAME})" ]; then
     -v $HOME/minio/disk2:/disk2 \
     -v $HOME/minio/disk3:/disk3 \
     -v $HOME/minio/disk4:/disk4 \
-    minio/minio server /disk{1...4}
+    minio/minio server /disk{1...4} --console-address ":9090" -address ":9000"
+
 else
   echo -e "\033[32m Starting minio container \033[0m"
   ## echo "Starting minio container"
@@ -33,3 +34,4 @@ fi
 
 echo "$LOCAL_IP"
 
+docker ps |grep "minio"
