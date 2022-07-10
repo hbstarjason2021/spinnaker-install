@@ -41,14 +41,14 @@ hal config edit --timezone Asia/Shanghai
 echo ${MINIO_ROOT_PASSWORD} | hal config storage s3 edit \
   --access-key-id ${MINIO_ROOT_USER} \
   --secret-access-key \
-  --endpoint http://$LOCAL_IP:9000
+  --endpoint http://$LOCAL_IP:9000  --no-validate
 
 DEPLOYMENT="default"
 USER="spinnaker"
 mkdir -p /home/${USER}/.hal/$DEPLOYMENT/profiles/
 echo "spinnaker.s3.versioning: false" > /home/${USER}/.hal/$DEPLOYMENT/profiles/front50-local.yml
 
-hal config storage edit --type s3
+hal config storage edit --type s3 --no-validate
 
 
 hal config provider kubernetes enable --no-validate
@@ -71,6 +71,6 @@ hal config features edit --artifacts true --no-validate
 hal config features edit --managed-pipeline-templates-v2-ui true --no-validate
 
 
-hal config provider kubernetes account list 
+hal config provider kubernetes account list --no-validate
 
 hal deploy apply --no-validate
