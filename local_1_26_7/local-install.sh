@@ -38,6 +38,11 @@ hal config version edit --version local:${VERSION} --no-validate
 hal config edit --timezone Asia/Shanghai
 
 ########## hal config storage edit --type redis 
+MINIO_ROOT_USER=minioadmin
+MINIO_ROOT_PASSWORD=minioadmin
+MINIO_ENCRYPTION_KEY=minio-encryption-key
+LOCAL_IP=$(ifconfig eth0 |grep "inet "| awk '{print $2}')   
+
 echo ${MINIO_ROOT_PASSWORD} | hal config storage s3 edit \
   --access-key-id ${MINIO_ROOT_USER} \
   --secret-access-key \
