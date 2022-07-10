@@ -33,7 +33,3 @@ fi
 
 echo "$LOCAL_IP"
 
-echo ${MINIO_ROOT_PASSWORD} | hal config storage s3 edit \
-  --access-key-id ${MINIO_ROOT_USER} \
-  --secret-access-key \
-  --endpoint http://$LOCAL_IP:9001
