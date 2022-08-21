@@ -17,8 +17,8 @@ spec:
        pathType: Prefix
        backend:
           service:
-            Name: spin-deck
-            Port: 
+            name: spin-deck
+            port: 
               number: 9000
   - host: gate.hbstarjason.spinnaker
     http:
@@ -27,8 +27,8 @@ spec:
         pathType: Prefix
         backend:
           service:
-            Name: spin-gate
-            Port: 
+            name: spin-gate
+            port: 
               number: 8084
 EOF
 
