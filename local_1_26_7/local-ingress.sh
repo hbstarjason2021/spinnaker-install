@@ -16,16 +16,20 @@ spec:
      - path: /
        pathType: Prefix
        backend:
-          serviceName: spin-deck
-          servicePort: 9000
+          service:
+            Name: spin-deck
+            Port: 
+              number: 9000
   - host: gate.hbstarjason.spinnaker
     http:
      paths:
       - path: /
         pathType: Prefix
         backend:
-          serviceName: spin-gate
-          servicePort: 8084
+          service:
+            Name: spin-gate
+            Port: 
+              number: 8084
 EOF
 
 kubectl apply -f spinnaker-ingress.yml 
