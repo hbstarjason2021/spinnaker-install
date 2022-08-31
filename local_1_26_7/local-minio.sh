@@ -9,6 +9,7 @@ MINIO_ROOT_USER=minioadmin
 MINIO_ROOT_PASSWORD=minioadmin
 MINIO_ENCRYPTION_KEY=minio-encryption-key
 LOCAL_IP=$(ifconfig eth0 |grep "inet "| awk '{print $2}')
+## LOCAL_IP=$(ip addr show dev $(ip r | grep default | tr ' ' \\n | grep -A1 dev | tail -n1) | grep 'inet ' | awk '{print $2}' | cut -d/ -f1)
 
 NAME=minio
 if [ -z "$(sudo docker ps -f name=${NAME} | grep ${NAME})" ]; then
