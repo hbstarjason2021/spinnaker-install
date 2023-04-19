@@ -3,7 +3,7 @@
 set -euo pipefail
 
 git clone https://github.com/hbstarjason2021/spinnaker-install
-## https://gitee.com/starjason/spinnaker-install
+## git clone https://gitee.com/starjason/spinnaker-install
 
 cp spinnaker-install/local_1_26_7/boms_1_26_7.tar.gz /root/
 tar zvxf boms_1_26_7.tar.gz
