@@ -2,6 +2,7 @@
 set -x
 S_REGISTRY="us-docker.pkg.dev/spinnaker-community"
 T_REGISTRY="hbstarjason"
+### T_REGISTRY="swr.cn-north-4.myhuaweicloud.com/spinnaker"
 
 <<'COMMENT'
 ####################################################
