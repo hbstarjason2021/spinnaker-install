@@ -24,6 +24,8 @@ KUBE_DIR="/root/.kube/"
     -v ${KUBE_DIR}:/home/spinnaker/.kube \
     -it hbstarjason/halyard:1.44.1
  
+ ## docker pull swr.cn-north-4.myhuaweicloud.com/spinnaker/halyard:1.44.1
+ 
  ## us-docker.pkg.dev/spinnaker-community/docker/halyard:stable
  #-v ${BOMS_DIR}/halyard-local.yaml:/opt/halyard/config/halyard.yml 
 
