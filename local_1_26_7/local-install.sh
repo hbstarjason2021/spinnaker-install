@@ -43,6 +43,8 @@ hal config edit --timezone Asia/Shanghai
 MINIO_ROOT_USER=minioadmin
 MINIO_ROOT_PASSWORD=minioadmin
 MINIO_ENCRYPTION_KEY=minio-encryption-key
+
+#######
 LOCAL_IP=$(ifconfig eth0 |grep "inet "| awk '{print $2}')   
 
 echo ${MINIO_ROOT_PASSWORD} | hal config storage s3 edit \
