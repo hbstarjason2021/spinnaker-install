@@ -80,6 +80,7 @@ jobs:
         # sudo -H -u spinnaker bash
         # cp /root/.kube/config /home/spinnaker/.kube/config
         # export KUBECONFIG="/home/spinnaker/.kube/config"
+        # chown spinnaker:spinnaker /home/spinnaker/.kube/config
 
     - name: Config kubernetes Cluster
       run: |
